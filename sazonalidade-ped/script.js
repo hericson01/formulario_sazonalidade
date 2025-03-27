@@ -1,11 +1,36 @@
 // Configura data e hora automaticamente
 document.addEventListener('DOMContentLoaded', () => {
     const datetimeInput = document.getElementById('datetime');
-    const now = new Date();
-    const brasiliaOffset = -3; // Brasília is UTC-3
-    now.setHours(now.getUTCHours() + brasiliaOffset);
-    const formattedDate = now.toISOString().slice(0, 16);
-    datetimeInput.value = formattedDate;
+    
+    function updateDateTime() {
+        const now = new Date();
+        const brasiliaOffset = -3; // Brasília is UTC-3
+        now.setHours(now.getUTCHours() + brasiliaOffset);
+        
+        // Formata a data e hora no formato brasileiro
+        const formattedDate = now.toLocaleString('pt-BR', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false
+        }).replace(',', '');
+        
+        // Converte para o formato esperado pelo input datetime-local
+        const [datePart, timePart] = formattedDate.split(' ');
+        const [day, month, year] = datePart.split('/');
+        const [hour, minute] = timePart.split(':');
+        const isoFormat = `${year}-${month}-${day}T${hour}:${minute}`;
+        
+        datetimeInput.value = isoFormat;
+    }
+
+    // Atualiza imediatamente
+    updateDateTime();
+    
+    // Atualiza a cada minuto
+    setInterval(updateDateTime, 60000);
 
     // Configura cálculos automáticos das taxas
     setupAutomaticCalculations();
