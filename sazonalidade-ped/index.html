@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sazonalidade Pediatria</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="text-center mb-4">🏥 SAZONALIDADE PEDIATRIA 🏥</h1>
+        
+        <form id="sazonalidadeForm" class="needs-validation" novalidate>
+            <!-- Unidade e Data -->
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <label class="form-label">✨ Unidade Hospitalar</label>
+                    <input type="text" class="form-control" id="hospital" value="HOSPITAL REGIONAL DE SANTA MARIA" readonly>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">🗓️ Data e Horário</label>
+                    <input type="datetime-local" class="form-control" id="datetime" readonly>
+                </div>
+            </div>
+            
+            <!-- Taxa de Ocupação -->
+            <div class="section-card">
+                <h4 class="mb-3">📈 TAXA DE OCUPAÇÃO</h4>
+                
+                <div class="row mb-4">
+                    <h5>🛌🏻 Internação - Enfermaria Pediátrica - 1° andar</h5>
+                    <div class="col-md-4">
+                        <label class="form-label">Internados</label>
+                        <input type="number" class="form-control" id="enf-pacientes" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Leitos Operacionais</label>
+                        <input type="number" class="form-control" id="enf-leitos" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Taxa de Ocupação (%)</label>
+                        <input type="number" class="form-control" id="enf-taxa" readonly>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <h5>🛏️ Internação - PS Pediátrico - Térreo</h5>
+                    <div class="col-md-4">
+                        <label class="form-label">Internados</label>
+                        <input type="number" class="form-control" id="internacao-pacientes" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Leitos Operacionais</label>
+                        <input type="number" class="form-control" id="internacao-leitos" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Taxa de Ocupação (%)</label>
+                        <input type="number" class="form-control" id="internacao-taxa" readonly>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <h5>🚨 Box Pediatrico</h5>
+                    <div class="col-md-4">
+                        <label class="form-label">Internados</label>
+                        <input type="number" class="form-control" id="box-pacientes" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Leitos Operacionais</label>
+                        <input type="number" class="form-control" id="box-leitos" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Taxa de Ocupação (%)</label>
+                        <input type="number" class="form-control" id="box-taxa" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Espera PS PED -->
+            <div class="section-card">
+                <h4 class="mb-3">🏪 ESPERA ATENDIMENTO PS PED</h4>
+                <div class="row mb-4">
+                    <div class="col-md-3">
+                        <label class="form-label">🔴 Vermelho</label>
+                        <input type="number" class="form-control" id="vermelho" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">🟠 Laranja</label>
+                        <input type="number" class="form-control" id="laranja" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">🟡 Amarelo</label>
+                        <input type="number" class="form-control" id="amarelo" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">🟢 Verde</label>
+                        <input type="number" class="form-control" id="verde" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FILA DE ESPERA -->
+            <div class="section-card">
+                <h4 class="mb-3">🚑 STATUS - FILA DE ESPERA</h4>
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <label class="form-label">Aguardando vaga de Enfermaria respiratória</label>
+                        <input type="number" class="form-control" id="espera-respiratoria" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Aguardando vaga de Enfermaria geral</label>
+                        <input type="number" class="form-control" id="espera-geral" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Aguardando vaga de UTI Pediátrica</label>
+                        <input type="number" class="form-control" id="espera-uti-ped" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Aguardando vaga de UTI neonatal</label>
+                        <input type="number" class="form-control" id="espera-uti-neo" required>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- LEITOS -->
+            <div class="section-card">
+                <h4 class="mb-3">ℹ️ STATUS - LEITOS</h4>
+                <div class="row mb-4">
+                    <div class="col-md-12">
+                        <label class="form-label">Leitos cedidos para resgate de UTI Pediátrica</label>
+                        <input type="number" class="form-control" id="leitos-resgate" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Leitos cedidos para pronto socorro infantil - <strong>Respiratório</strong></label>
+                        <input type="number" class="form-control" id="leitos-respiratorio" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Leitos cedidos para pronto socorro infantil - <strong>Geral</strong></label>
+                        <input type="number" class="form-control" id="leitos-geral" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LEITOS UTI -->
+            <div class="section-card">
+                <h4 class="mb-3">🖥️ STATUS - ESPERA - LEITOS DE UTI</h4>
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <label class="form-label">UTI Pediátrica</label>
+                        <input type="number" class="form-control" id="uti-ped">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">UTI Neonatal</label>
+                        <input type="number" class="form-control" id="uti-neo">
+                    </div>
+                </div>
+            </div>
+
+            <!-- CAMPOS -->
+            <div class="section-card">
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <label class="form-label">👨‍⚕️ Boletim por</label>
+                        <select class="form-select" id="boletim-por" required>
+                            <option value="" disabled selected>Selecione uma opção</option>
+                            <option value="GERÊNCIA DE REGULAÇÃO">GERÊNCIA DE REGULAÇÃO</option>
+                            <option value="CENTRO TÁTICO DE RESOLUTIVIDADE">CENTRO TÁTICO DE RESOLUTIVIDADE</option>
+                            <option value="GESTÃO DE LEITOS">GESTÃO DE LEITOS</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Gerar Relatório</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Modal para exibir o relatório -->
+    <div class="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="reportModalLabel">Relatório Gerado</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <pre id="reportContent" style="white-space: pre-wrap; font-family: monospace;"></pre>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary" id="copyReport">Copiar Informações</button>
+                    <button type="button" class="btn btn-success" id="generatePDF">Gerar PDF</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
