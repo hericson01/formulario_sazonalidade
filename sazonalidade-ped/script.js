@@ -92,6 +92,7 @@ document.getElementById('sazonalidadeForm').addEventListener('submit', function(
     const internacaoTaxa = document.getElementById('internacao-taxa').value || '00';
     const boxPacientes = document.getElementById('box-pacientes').value || '00';
     const boxLeitos = document.getElementById('box-leitos').value || '00';
+    const boxExtra = document.getElementById('box-extra').value || '00';
     const boxTaxa = document.getElementById('box-taxa').value || '00';
     const vermelho = document.getElementById('vermelho').value || '00';
     const laranja = document.getElementById('laranja').value || '00';
@@ -127,6 +128,7 @@ document.getElementById('sazonalidadeForm').addEventListener('submit', function(
     mensagem += `🚨Box Pediátrico\n`;
     mensagem += `\tInternados: ${boxPacientes}\n`;
     mensagem += `\tLeitos Operacionais: ${boxLeitos}\n`;
+    mensagem += `\tLeitos Extra: ${boxExtra}\n`;
     mensagem += `\tTaxa de Ocupação: ${boxTaxa}%\n\n`;
     
     mensagem += `🏪ESPERA ATENDIMENTO - PRONTO SOCORRO INFANTIL\n`;
@@ -234,6 +236,7 @@ document.getElementById('generatePDF').addEventListener('click', function() {
     yPos = addText("Box Pediátrico:", margin, yPos);
     yPos = addText(`Internados: ${document.getElementById('box-pacientes').value}`, margin + 10, yPos);
     yPos = addText(`Leitos Operacionais: ${document.getElementById('box-leitos').value}`, margin + 10, yPos);
+    yPos = addText(`Leitos Extra: ${document.getElementById('box-extra').value}`, margin + 10, yPos);
     yPos = addText(`Taxa de Ocupação: ${document.getElementById('box-taxa').value}%`, margin + 10, yPos);
     
     // Espera Atendimento
